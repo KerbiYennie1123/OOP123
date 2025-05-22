@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="../img/logoB.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="css/main-style.css">
+  <link rel="stylesheet" type="text/css" href="css/other-style.css">
+  <link rel="stylesheet" href="../css/all.css">
+    <title>Contact  - WILLMELIA</title>
+<style >
+  
+</style>
+
+</head>
+<body class="contact-body">
+<!-- header -->
+<header class="wm-header-v2">
+  <div class="logov2-v2">
+    <img class="logo-black" src="../img/logoB1.png" alt="WILLMELIA logo">
+  </div>
+
+  <nav class="home-nav-v2">
+    <a href="home.html" class="nav-link">Home</a>
+    <a href="product.html" class="nav-link">Product</a>
+    <a href="contact.html" class="active1">Contact</a>
+    <a href="about.html" class="nav-link">About</a>
+  </nav>
+
+  <!-- profile heree -->
+  <div class="wm-header-profile-v2">
+    <img id="wm-header-pic" src="../img/defaultpfp.png" alt="Profile Picture" onclick="toggleProfileMenu()">
+</div>
+
+<div id="wm-profile-menu" class="wm-profile-menu" style="display: none;">
+    <span id="wm-header-name">@cheese</span> 
+    <button onclick="openProfilePopup()"><i class="fa-solid fa-user"></i> My Profile</button> 
+    <button onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button> 
+</div>
+
+   <!-- hamburger icon (phone only) -->
+  <div class="hamburger-menu-home" id="hamburger-menu">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <!--Sidebar Menu (phone only) -->
+  <div class="phone-sidebar" id="phone-sidebar">
+    <!-- Close Button -->
+    <div class="phone-sidebar-close" id="sidebar-close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="phone-nav-links">
+      <li><a href="#" id="my-profile-link" onclick="openProfilePopup()">My Profile</a></li>
+      <hr>
+      <li> Navigations </li>
+      <li><a href="home.html" >Home</a></li>
+      <li><a href="product.html">Product</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <div class="sidebar-dim"></div>
+</header>
+</header>
+
+
+
+<!-- profile settings here -->
+
+  <div id="wmProfilePopup" class="wm-profile-popup">
+  <div class="wm-profile-content">
+    <button class="wm-close-btn" onclick="closeProfilePopup()"><i class="fa-solid fa-xmark"></i></button>
+    
+    <div class="wm-profile-wrapper">
+
+  <!-- here details        -->
+
+      <div class="wm-profile-display">
+<button id="wm-change-cover-btn">Change Cover Photo</button>
+
+       <div class="wm-profile-cover-box" id="wm-profile-cover-box">
+  <input type="file" id="wm-cover-pic" accept="image/*" style="display: none;">
+
+
+
+
+        <div class="wm-profile-pic-wrap">
+  <img id="wm-profile-pic-preview" src="../img/defaultpfp.png" alt="Profile Picture" style="cursor:pointer;">
+  <input type="file" id="wm-profile-pic" accept="image/*" style="display: none;">
+    <div class="wm-profile-hover-text"> Change Profile Picture</div>
+
+</div>
+
+        <h3 id="wm-name-display">cheese</h3></div>
+        <hr> 
+        <div class="wm-profile-details">
+        <h4>Profile Details</h4>
+        </div>
+        <p><strong><i class="fa-solid fa-user"></i> Name:</strong> <span id="wm-fname-display">William Kirby</span></p>
+        <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> <span id="wm-email-display">william_burger@bsis.com</span></p>
+        <p><strong><i class="fa-solid fa-phone"></i> Phone:</strong> <span id="wm-phone-display"> 09123456789</span></p>
+        <p><strong><i class="fa-solid fa-location-dot"></i> Location:</strong> <span id="wm-location-display">Bulacan, Malolos City </span></p> <hr>
+
+        <div class="pass-set">
+        <button onclick="editpass()" class="editpass"> Edit password </button> </div>
+
+
+
+
+
+
+
+      </div>
+
+
+      <!-- edit side hereee -->
+
+      <div class="wm-profile-edit">
+        <h3><i class="fa-solid fa-gear"></i> Edit Profile</h3>
+        <form id="wm-profile-form">
+          
+          
+          <div class="wm-form-group">
+            <label for="wm-username">Username</label>
+            <input type="text" id="wm-username" value="@cheese" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-fname">Full Name</label>
+            <input type="text" id="wm-fname" value="William Kirby" required>
+          </div>
+
+
+          <div class="wm-form-group">
+            <label for="wm-email">Email</label>
+            <input type="email" id="wm-email" value="william_burger@bsis.com" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-contact">Phone Number</label>
+            <input type="text" id="wm-contact" value="09123456789" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-location">Location</label>
+            <input type="text" id="wm-location" value="Bulacan, Malolos City" required>
+          </div>
+
+
+
+          <button type="submit" class="wm-save-btn">Save Changes</button>
+          <button type="button" class="wm-logout-btn" onclick="logout()">Log Out</button>
+        </form>
+        </div>
+          </div>  
+   </div>
+</div>
+
+
+
+
+
+
+
+  <section class="wm-contact-section">
+  <h2>Contact Us</h2>
+  <div class="wm-contact-grid">
+    <!-- Contact Sales -->
+ <div class="wm-contact-card wm-willbot-card">
+  <div class="wm-willbot-icon">
+    <img src="../img1/willbot.png" alt="Willbot">
+  </div>
+  <h3>Chat with WillBot<br>our virtual assistant</h3>
+  <p>WillBot is our quick-response chatbot with ready-made answers to common questions — simple, fast, and always online.</p>
+  <button class="wm-btn" onclick="toggleChat()" >Chat with WillBot</button>
+</div>
+
+
+    <!-- Location Map -->
+  <!-- Your contact card stays the same -->
+<div class="wm-contact-card"><br><br>
+  <div class="wm-contact-icon"><i class="fa-solid fa-location-dot"></i></div><br><br>
+  <h3>Where are we located?</h3>
+  <p>Visit our store and office at our main branch in  Malolos City</p><br>
+  <button class="wm-btn" onclick="openMap()">View Location</button>
+</div>
+
+<!-- Hidden Map Popup -->
+<div class="wm-location-popup" id="wmLocation">
+  <div class="wm-location-content">
+    <span class="wm-close" onclick="closeMap()">&times;</span>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d262.35993776523736!2d120.80687808660574!3d14.866936575244841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339653005d4b0979%3A0xe1d81c7a5b40b521!2sBulacan%20Polytechnic%20College%20Main%20Campus!5e1!3m2!1sen!2sph!4v1745379043847!5m2!1sen!2sph" 
+      width="100%" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+
+    <!-- Social Media -->
+    <div class="wm-contact-card"><br> <br>  
+      <div class="wm-contact-icon"><i class="fa-solid fa-globe"></i></div><br> 
+      <h3>Contact Us on<br>our Socials</h3> 
+      <ul class="wm-contact-list">
+
+        <li><i class="fa-brands fa-facebook-f"></i>  &nbsp; WILLMELIA Store PH</li>
+        <li><i class="fa-brands fa-tiktok"></i>  &nbsp;&nbsp;&nbsp;WILLMELIA Store PH</li>
+        <li><i class="fa-brands fa-discord"></i>  &nbsp; @willmelia25'</li>
+        <li><i class="fa-brands fa-instagram"></i>  &nbsp;&nbsp; @willmelia25</li>                
+        <li><i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;  willmelia25@gmail.com</li>                
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- contact us form here -->
+
+<div class="wm-contact-form-container">
+  <h2>GET IN TOUCH!</h2>
+    <p>If you have any concerns, questions, or just want to say hello, feel free to send us a message below. We're here to help!</p>
+
+  <form class="wm-contact-form" id="wmForm">
+    <div class="wm-form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Alfredo Batumbakal" required>
+    </div>
+    <div class="wm-form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    </div>
+    <div class="wm-form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Send your concern here" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="wm-btn">Send Message</button>
+  </form>
+
+  <div id="wmThankYouMessage" class="wm-thank-you" style="display: none;"></div>
+</div>
+
+
+
+
+
+
+
+<!-- willbot here -->
+
+
+<div id="chat-overlay" class="chat-overlay"></div>
+
+
+    <div class="chat-container">
+        <!-- Header Section -->
+        <div class="chat-header">
+<button class="back-button" onclick="toggleChat()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="chat-title">WillBot</div>
+        </div>
+
+        <!-- Chat Box -->
+        <div class="chatbox">
+            <div class="chat-log" id="chat-log">
+             <div class="chat-message bot-message">
+  <img src="../img1/willbot1.png" alt="WillBot" class="bot-avatar">
+  <div class="bubble">Hi, I'm WillBot! Welcome to Willmelia. How can I assist you today?</div>
+</div>
+
+            </div>
+        </div>
+
+
+        <div class="common-questions">
+            <div class="questions-slider" id="questions-slider">
+                <button class="question-button" onclick="sendQuestion('What is your return policy?')">What is your return policy?</button>
+                <button class="question-button" onclick="sendQuestion('How do I update my shipping address?')">How do I update my shipping address?</button>
+                <button class="question-button" onclick="sendQuestion('What payment methods do you accept?')">What payment methods do you accept?</button>
+                <button class="question-button" onclick="sendQuestion('What is your recommended shoe?')">What is your recommended shoe?</button>
+                <button class="question-button" onclick="sendQuestion('How can I contact you?')">How can I contact you?</button>
+                <button class="question-button" onclick="sendQuestion('Do you have a customer service number?')">Do you have a customer service number?</button>
+                <button class="question-button" onclick="sendQuestion('What are your working hours?')">What are your working hours? </button>
+                <button class="question-button" onclick="sendQuestion('Where is your store located?')">Where is your store located?</button>
+
+            </div>
+        </div>
+
+        <div class="chat-input-container">
+            <input type="text" id="user-input" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+
+
+
+ <!-- footer part -->
+
+<footer class="wm-footer">
+  <div class="wm-footer-container">
+   
+
+    <!-- Links -->
+    <div class="wm-footer-links">
+      <div>
+        <h4>Partners</h4>
+        <ul>
+  
+        <li>Under Armour</li>
+        <li>Nike</li>
+        <li>Anta</li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Customer Service</h4>
+        <ul>
+          <li>Contact Us</li>
+          <li>Chat with WIllBot</li>
+          <li>Our Location </li>
+
+
+        </ul>
+      </div>
+      <div>
+        <h4>About Us</h4>
+        <ul>
+          <li>Our Story</li>
+          <li>Why WILLMELIA</li>
+          <li>Our Promise</li>
+          <li>Our Vision</li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="product.html">Product page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="wm-footer-newsletter">
+      <h3>Stay Updated with Our Latest Sneakers</h3>
+      <p>Get the latest updates, offers, and more directly in your inbox!</p>
+      <label for="email"> </label>
+      <div class="wm-submit-form">
+        <input type="email" id="email" placeholder="Email Address" />
+        <button onclick="submitEmail()">Submit</button>
+      </div>
+      <div class="wm-social-icons">
+        <a href="http://fb.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/explore" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="wm-footer-bottom">
+    <p>Copyright &copy; 2025 | WILLMELIA | BSIS - 1A </p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+<script src="script/contact.js"></script>
+<script src="script/setting.js"></script>
+
+
+<script>
+
+
+// menu here
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburgerMenu = document.querySelector('#hamburger-menu');
+  const sidebar = document.querySelector('#phone-sidebar');
+  const sidebarDim = document.querySelector('.sidebar-dim');
+  const closeButton = document.querySelector('#sidebar-close-btn');
+  const myProfileLink = document.querySelector('#my-profile-link');
+  hamburgerMenu.addEventListener('click', () => {
+    sidebar.classList.add('active');
+    sidebarDim.style.display = 'block';
+  });
+
+  closeButton.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    sidebarDim.style.display = 'none';
+  });
+
+  sidebarDim.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    sidebarDim.style.display = 'none';
+  });
+
+  myProfileLink.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    sidebarDim.style.display = 'none';
+  });
+});
+
+
+
+</script>
+
+</body>
+</html>

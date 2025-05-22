@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Products - WILLMELIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet" href="css/other-style.css">
+  <link rel="icon" href="../img/logoB.png" type="image/x-icon">
+<link rel="stylesheet" href="../css/all.css">
+
+</head>
+<body class="product-home">
+
+  <!-- pinaka menu / header -->
+
+  <header class="header">
+    <div class="logo"><img src="../img/logoB1.png" alt="WILLMELIA logo"> </div>
+
+    
+   
+<nav class="nav">
+
+  <!-- profile here -->
+<div class="wm-nav-profile">
+  <img class="wm-profile-pic" src="../img/defaultpfp.png" alt="Profile Picture" onclick="openProfilePopup()">
+  <span class="wm-profile-name">@cheese</span>
+</div>
+
+
+<div class="pro-nav">
+  <a href="home.html">Home</a>
+  <a href="product.html" class="active1">Product</a>
+    <a href="contact.html">Contact</a>
+  <a href="about.html">About</a>
+</div>
+</nav>
+
+
+
+
+ <!-- hamburger icon (phone only) -->
+<div class="hamburger-menu" id="hamburger-menu">
+  <i class="fa fa-bars"></i>
+</div>
+
+<div class="phone-sidebar" id="phone-sidebar">
+=  <div class="phone-sidebar-close" id="sidebar-close-btn">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+
+  <ul class="phone-nav-links">
+    <li><a href="#" onclick="openProfilePopup()">My Profile</a></li> <hr>
+    <li> Navigations </li>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="product.html"class="active">Product</a></li>
+    <li><a href="contact.html" >Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</div>
+<div class="sidebar-dim"></div>
+
+
+
+
+  <div class="header-actions">
+
+
+    <div class="cart-icon" id="cartIcon" onclick="toggleCart()"> 
+      <i class="fa-solid fa-cart-shopping"></i> <span id="cartCountBadge" class="cart-badge">0</span>
+    </div>
+
+  </div>
+
+
+<!-- profile settings here -->
+
+  <div class="wm-header-profile">
+    <img id="wm-header-pic" src="../img/defaultpfp.png" alt="Profile Picture" onclick="toggleProfileMenu()">
+</div>
+
+<div id="wm-profile-menu" class="wm-profile-menu" style="display: none;">
+    <span id="wm-header-name">@cheese</span> 
+    <button onclick="openProfilePopup()"><i class="fa-solid fa-user"></i> My Profile</button> 
+    <button onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button> 
+</div>
+
+  </header>
+
+<div class="mens-banner">
+  <img class="banner-img" src="../img/banA.png" alt="Mens Shoes">
+  <img class="banner-img" src="../img/banB.png" alt="Mens Shoes" style="display: none;">
+</div>
+
+
+<div class="filters">
+  <div class="search-wrapper">
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts(event)">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+  <select id="categoryFilter" onchange="searchProducts(event)">
+    <option value="all">All Categories</option>
+    <option value="Under Armour">Under Armour</option>
+    <option value="Nike">Nike</option>
+    <option value="Anta">Anta</option>
+    <option value="Willmelia">Willmelia</option>
+  </select>
+</div>
+
+
+
+  <!-- cart part here -->
+  <div id="cartMnu" class="cart-dropdown">
+    <button class="cart-dropdown-close" id="cartCloseBtn"><i class="fa-solid fa-x"></i></button>
+    <h3 class="cart-h1">CART (<span id="cartItemCount">0</span> items)</h3>
+
+    <hr class="cart-divider">
+
+      <div id="cartItemsWrapper">
+    <div id="cartItems"></div>
+     </div>
+
+    <div class="cart-total">Subtotal: <span id="totalPrice">₱0</span></div>
+
+  <!--   <div class="wm-cart-location">
+  <strong><i class="fa-solid fa-truck-fast"></i>Shipping to:</strong> <span id="wm-cart-location">Bulacan, Malolos City</span>
+</div> -->
+
+    <button class="place-order-btn" onclick="placeOrder()" disabled>Check Out</button>
+  </div>
+     
+
+  <br> <br> <Br> <br>
+
+  
+
+ 
+
+
+<!-- profile settings here -->
+
+  <div id="wmProfilePopup" class="wm-profile-popup">
+  <div class="wm-profile-content">
+    <button class="wm-close-btn" onclick="closeProfilePopup()"><i class="fa-solid fa-xmark"></i></button>
+    
+    <div class="wm-profile-wrapper">
+
+  <!-- here details        -->
+
+      <div class="wm-profile-display">
+<button id="wm-change-cover-btn">Change Cover Photo</button>
+
+       <div class="wm-profile-cover-box" id="wm-profile-cover-box">
+  <input type="file" id="wm-cover-pic" accept="image/*" style="display: none;">
+
+
+
+
+        <div class="wm-profile-pic-wrap">
+  <img id="wm-profile-pic-preview" src="../img/defaultpfp.png" alt="Profile Picture" style="cursor:pointer;">
+  <input type="file" id="wm-profile-pic" accept="image/*" style="display: none;">
+    <div class="wm-profile-hover-text"> Change Profile Picture</div>
+
+</div>
+
+        <h3 id="wm-name-display">William Kirby</h3></div>
+        <hr> 
+        <div class="wm-profile-details">
+        <h4>Profile Details</h4>
+        </div>
+        <p><strong><i class="fa-solid fa-user"></i> Name:</strong> <span id="wm-fname-display">William Kirby</span></p>
+        <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> <span id="wm-email-display">william_burger@bsis.com</span></p>
+        <p><strong><i class="fa-solid fa-phone"></i> Phone:</strong> <span id="wm-phone-display"> 09123456789</span></p>
+        <p><strong><i class="fa-solid fa-location-dot"></i> Location:</strong> <span id="wm-location-display">Bulacan, Malolos City</span></p> <hr>
+
+        <div class="pass-set">
+        <button onclick="editpass()" class="editpass"> Edit password </button> </div>
+
+
+        <div class="dark-mode-toggle">
+    <span class="toggle-label">Dark mode</span>
+    <label class="switch">
+      <input type="checkbox" id="darkToggle">
+      <span class="slider">
+        <i class="fas fa-sun" id="sunIcon"></i>
+        <i class="fas fa-moon" id="moonIcon"></i>
+      </span>
+    </label>
+  </div>
+
+
+
+
+
+
+      </div>
+
+
+      <!-- edit side hereee -->
+
+      <div class="wm-profile-edit">
+        <h3><i class="fa-solid fa-gear"></i> Edit Profile</h3>
+        <form id="wm-profile-form">
+          
+          
+          <div class="wm-form-group">
+            <label for="wm-username">Username</label>
+            <input type="text" id="wm-username" value="@cheese" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-fname">Full Name</label>
+            <input type="text" id="wm-fname" value="William Kirby" required>
+          </div>
+
+
+          <div class="wm-form-group">
+            <label for="wm-email">Email</label>
+            <input type="email" id="wm-email" value="william_burger@bsis.com" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-contact">Phone Number</label>
+            <input type="text" id="wm-contact" value="09123456789" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-location">Location</label>
+            <input type="text" id="wm-location" value="Bulacan, Malolos City" required>
+          </div>
+
+
+
+          <button type="submit" class="wm-save-btn">Save Changes</button>
+          <button type="button" class="wm-logout-btn" onclick="logout()">Log Out</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- checkotu here -->
+
+<div class="wm-checkout" id="checkoutPopup" style="display: none;">
+  <div class="wm-checkout-content">
+    <h2>Checkout</h2>
+
+    <div class="delivery-info">
+      <h3>Delivery Information</h3>
+      <p><strong>Recipient Name:</strong><span id="recipientName"></span></p>
+        <div class="wm-cart-location">
+          <strong>Address: </strong> <span id="wm-cart-location">Bulacan, Malolos City</span>
+        </div>
+      </p>
+<p><strong>Contact:</strong> <span id="contactNumber">09123456789</span></p>
+    </div>
+
+    <div class="checkout-table">
+      <h3>Products Ordered</h3>
+      <table id="checkoutItemsTable">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Item Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="checkoutItems"></tbody>
+      </table>
+    </div>
+
+
+
+<div class="pay-ship">
+<div class="shipping-fee">
+  <div class="shipping-header">
+    <label for="shippingOption">Shipping Method:</label>
+    <select id="shippingOption" onchange="updateCheckoutTotal()">
+      <option value="standard">Standard Local</option>
+      <option value="pickup">Pick Up (No Fee)</option>
+    </select>
+  </div>
+
+  <div class="shipping-details">
+    <div class="shipping-icon">
+      <i class="fa-solid fa-truck-fast"></i>
+    </div>
+    <div class="shipping-info">
+      <div id="shippingMethodLabel" class="shipping-method">Standard Local (3-5 days)</div>
+      <div class="shipping-fee-label">Shipping Fee: <span id="shippingFee">₱36</span></div>
+      <div id="deliveryTime" class="shipping-delivery-time"></div>
+      <div id="pickupDetails" class="pickup-details"></div> 
+    </div>
+  </div>
+</div>
+
+
+
+<div class="payment-method">
+  <div class="payment-box">
+    <label for="paymentMethod">Payment Method:</label>
+    <select id="paymentMethod" onchange="updateCheckoutTotal()">
+      <option value="cod">Cash on Delivery (COD)</option>
+      <option value="gcash">E-Wallet (GCash)</option>
+    </select>
+  </div>
+
+  <p id="codNote" style="display: none; font-size: 14px; color: #555;"></p>
+  <p id="gcashNote" style="display: none; font-size: 14px; color: #555;"></p>
+
+  <div id="paymentDetails"></div> 
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<div class="order-summary">
+  <h3>Order Summary</h3>
+  <p><strong>Merchandise Subtotal:</strong> <span id="merchandiseSubtotal">₱0.00</span></p>
+  <p><strong>Shipping Subtotal:</strong> <span id="shippingSubtotal">₱0.00</span></p>
+
+  <div id="gcashFee" style="display: none;">
+  <p><strong>GCash Fee:</strong> <span id="gcashFeeAmount">₱0.00</span></p>
+</div>
+<p class="total-p"><strong>Total Payment  :</strong> <span id="checkoutTotal">₱0.00</span></p>
+</div>
+
+<div class="action-buttons">
+  <div class="confirm-action" onclick="submitCheckout()">Place Order</div>
+  <div class="cancel-action" onclick="closeCheckout()">Cancel</div>
+</div>
+
+  </div>
+</div>
+
+
+<!-- gcash heree -->  
+
+<div id="gcashPopup" class="gcash-popup" style="display: none;">
+  <div class="gcash-popup-content">
+    <div class="gcash-header">
+      <img src="../img1/gcash.png" alt="Gcash Logo"> 
+      <p><strong>Merchant:</strong> WILLMELIA</p>
+    </div>
+
+    <div class="amount-due">
+      <p><strong>Amount Due:</strong> <span id="amountDue" class="amount-value">PHP 0.00</span></p>
+    </div>
+
+    <div class="login-section">
+      <p><strong>Login to pay via GCash</strong></p>
+      <div class="phone-line-wrapper">
+        <span class="inline-prefix">+63</span>
+        <input type="text" id="gcashPhone" placeholder="Mobile number" maxlength="10" />
+      </div>
+      <div class="error-message" id="phoneError" style="display: none;"></div>
+      <button id="nextBtn" onclick="showVerification()">Next</button>
+    </div>
+
+    <div id="verificationSection" class="verification-section" style="display: none;">
+      <p><strong>Verify via text</strong></p>
+      <p>Please enter the 6-digit authentication code sent to <strong id="verifyNumber"></strong></p>
+      <div class="otp-input">
+        <input type="text" id="authCode1" maxlength="1" oninput="moveFocus(this, 'authCode2')" />
+        <input type="text" id="authCode2" maxlength="1" oninput="moveFocus(this, 'authCode3')" />
+        <input type="text" id="authCode3" maxlength="1" oninput="moveFocus(this, 'authCode4')" />
+        <input type="text" id="authCode4" maxlength="1" oninput="moveFocus(this, 'authCode5')" />
+        <input type="text" id="authCode5" maxlength="1" oninput="moveFocus(this, 'authCode6')" />
+        <input type="text" id="authCode6" maxlength="1" />
+      </div>
+      <div class="error-message" id="authCodeError" style="display: none;"></div>
+      <button id="nextAuthCodeBtn" onclick="goToStep2()">Next</button>
+      <button onclick="resendCode()" style="background: none; color: blue;">Resend Code</button>
+    </div>
+
+    <div id="mpinSection" class="mpin-section" style="display: none;">
+  <p><strong>Enter MPIN</strong></p>
+  <div class="mpin-dots">
+    <input type="password" maxlength="1" class="mpin-dot" />
+    <input type="password" maxlength="1" class="mpin-dot" />
+    <input type="password" maxlength="1" class="mpin-dot" />
+    <input type="password" maxlength="1" class="mpin-dot" />
+  </div>
+  <div class="error-message" id="pinError" style="display: none;"></div>
+  <button onclick="processGCashPayment()">Proceed to Pay</button>
+</div>
+
+
+    <div id="thankyouSection" class="thankyou-section" style="display: none;">
+  <div class="checkmark-wrapper">
+    <svg class="checkmark" viewBox="0 0 52 52">
+      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+      <path class="checkmark__check" d="M14 27 l10 10 l15 -15" fill="none"/>
+    </svg>
+  </div>
+  <h4>Thank You!</h4>
+  <p>Your payment has been successfully processed.</p>
+  <button onclick="closeAllPopups()">Close</button>
+</div>
+
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+ <!-- products here -->
+
+  <section class="product-section" id="productSection">
+  </section>
+
+
+<div id="receiptHere" class="wm-receipt">
+  <div class="wm-receipt-content" id="receiptContent">
+    <div class="wm-receipt-header">
+      <img src="../img/logoA1.png" alt="Logo" class="wm-receipt-logo" />
+      <h2>Order Receipt</h2>
+    </div>
+    <div class="wm-receipt-client">
+  <p><strong>Recipient:</strong> <span id="receiptClientName"></span></p>
+  <p><strong>Address:</strong> <span id="receiptClientAddress"></span></p>
+  <p><strong>Phone:</strong> <span id="receiptClientPhone"></span></p>
+  <p><strong>Email:</strong> <span id="receiptClientEmail"></span></p>
+</div>
+
+    <table class="wm-receipt-table">
+      <thead>
+  <tr>
+    <th>Product</th>
+    <th>Name</th>
+    <th>Qty</th>
+    <th>Subtotal</th>
+  </tr>
+</thead>
+
+
+
+      <tbody id="receiptItems"></tbody>
+    </table>
+    <div class="wm-receipt-summary">
+      <p><strong>Shipping Method:</strong> <span id="receiptShippingMethod"></span></p>
+      <p><strong>Shipping Fee:</strong> <span id="receiptShippingFee"></span></p>
+      <p><strong>Payment Method:</strong> <span id="receiptPaymentMethod"></span></p>
+      <p id="receiptGcashFeeContainer"><strong>GCash Fee:</strong> <span id="receiptGcashFee"></span></p>
+      <h3>Total Due: <span id="receiptTotalDue"></span></h3>
+    </div>
+
+    <div class="wm-receipt-thankyou">
+  Thank you for shopping with <strong>Willmelia</strong>! We appreciate your trust and hope to see you again soon.
+</div>
+
+    <div class="wm-receipt-actions">
+      <button onclick="window.print()">Print Receipt</button>
+      <button onclick="document.getElementById('receiptHere').style.display='none'">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<button id="scroll-up-btn" title="Go to top">
+    <span>&raquo;</span>
+    <span class="scroll-text">Scroll Up</span>
+</button>
+
+
+
+ <!-- footer part -->
+
+<footer class="wm-footer">
+  <div class="wm-footer-container">
+   
+
+    <!-- Links -->
+    <div class="wm-footer-links">
+      <div>
+        <h4>Partners</h4>
+        <ul>
+  
+        <li>Under Armour</li>
+        <li>Nike</li>
+        <li>Anta</li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Customer Service</h4>
+        <ul>
+          <li>Contact Us</li>
+          <li>Chat with WIllBot</li>
+          <li>Our Location </li>
+
+
+        </ul>
+      </div>
+      <div>
+        <h4>About Us</h4>
+        <ul>
+          <li>Our Story</li>
+          <li>Why WILLMELIA</li>
+          <li>Our Promise</li>
+          <li>Our Vision</li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="product.html">Product page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="wm-footer-newsletter">
+      <h3>Stay Updated with Our Latest Sneakers</h3>
+      <p>Get the latest updates, offers, and more directly in your inbox!</p>
+      <label for="email"> </label>
+      <div class="wm-submit-form">
+        <input type="email" id="email" placeholder="Email Address" />
+        <button onclick="submitEmail()">Submit</button>
+      </div>
+      <div class="wm-social-icons">
+        <a href="http://fb.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/explore" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="wm-footer-bottom">
+    <p>Copyright &copy; 2025 | WILLMELIA | BSIS - 1A </p>
+  </div>
+</footer>
+
+
+  <!-- nilipat ko script file which is lagayan o container ng products and mga functions para hindi masyadong crowded... check mo saka bilang file insan... -->
+
+  <script src="script/product.js"></script>
+
+  <script>
+
+    // banner here
+
+let images = document.querySelectorAll('.mens-banner .banner-img');
+let currentIndex = 0;
+
+function changeImage() {
+  images[currentIndex].style.display = 'none';
+  
+  currentIndex = (currentIndex + 1) % images.length;
+
+  images[currentIndex].style.display = 'block';
+}
+
+setInterval(changeImage, 500);
+
+// cart sliders
+
+const cartDropdown = document.querySelector('.cart-dropdown');
+const cartIcon = document.querySelector('.cart-icon');
+const cartCloseBtn = document.querySelector('.cart-dropdown-close');
+
+function toggleCart() {
+  cartDropdown.classList.toggle('active');
+}
+
+cartCloseBtn.addEventListener('click', () => {
+  cartDropdown.classList.remove('active');
+});
+
+
+
+// menu here
+
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const sidebar = document.querySelector('.phone-sidebar');
+const sidebarDim = document.querySelector('.sidebar-dim');
+const closeButton = document.querySelector('.phone-sidebar-close');
+
+hamburgerMenu.addEventListener('click', () => {
+  sidebar.classList.add('active');
+  sidebarDim.style.display = 'block'; 
+});
+
+closeButton.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+  sidebarDim.style.display = 'none';
+});
+
+sidebarDim.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+  sidebarDim.style.display = 'none'; 
+});
+
+
+
+
+function toggleProfileMenu() {
+    let profileMenu = document.getElementById('wm-profile-menu');
+    profileMenu.style.display = profileMenu.style.display === 'none' ? 'block' : 'none';
+}
+
+function openProfilePopup() {
+    let profilePopup = document.getElementById('wmProfilePopup');
+    profilePopup.style.display = 'block'; 
+    let profileMenu = document.getElementById('wm-profile-menu');
+    profileMenu.style.display = 'none';
+}
+
+function closeProfilePopup() {
+    let profilePopup = document.getElementById('wmProfilePopup');
+    profilePopup.style.display = 'none'; 
+}
+
+
+
+
+
+// profile settings here
+
+function openProfilePopup() {
+    document.getElementById("wmProfilePopup").style.display = "flex";
+}
+
+// close
+
+function closeProfilePopup() {
+    document.getElementById("wmProfilePopup").style.display = "none";
+}
+
+
+
+// logout here
+
+
+function logout() {
+  const confirmLogout = confirm("Are you sure you want to logout?");
+  if (confirmLogout) {
+    window.location.href = "index.html";
+  }
+}
+
+
+// picture preview here ng pfp
+
+document.getElementById("wm-profile-pic").addEventListener("change", function () {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById("wm-profile-pic-preview").src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+});
+
+document.getElementById("wm-profile-pic-preview").addEventListener("click", function () {
+    document.getElementById("wm-profile-pic").click();
+});
+
+
+document.getElementById("wm-change-cover-btn").addEventListener("click", function () {
+  document.getElementById("wm-cover-pic").click();
+});
+
+document.getElementById("wm-cover-pic").addEventListener("change", function () {
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    document.getElementById("wm-profile-cover-box").style.backgroundImage = `url('${e.target.result}')`;
+  };
+  if (this.files[0]) {
+    reader.readAsDataURL(this.files[0]);
+  }
+});
+
+
+function updateProfile(newPicUrl, newUsername) {
+  // Update both profile pictures
+  document.querySelectorAll('#wm-header-pic, .wm-profile-pic').forEach(pic => {
+    pic.src = newPicUrl;
+  });
+
+  document.querySelectorAll('#wm-header-name, .wm-profile-name').forEach(name => {
+    name.textContent = newUsername;
+  });
+}
+
+
+
+
+// here masasave 
+document.getElementById("wm-profile-form").addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+    const username = document.getElementById("wm-username").value || "Guest";
+    const fullName = document.getElementById("wm-fname").value || "Cheesy Kimbapu"; 
+    const email = document.getElementById("wm-email").value || "guest@example.com";
+    const phone = document.getElementById("wm-contact").value || "123-456-7890";
+    const location = document.getElementById("wm-location").value || "New York, USA";
+    const profilePic = document.getElementById("wm-profile-pic-preview").src;
+
+    document.getElementById("wm-header-name").textContent = username;
+    document.getElementById("wm-header-pic").src = profilePic;
+
+    document.getElementById("wm-name-display").textContent = username;
+    document.getElementById("wm-fname-display").textContent = fullName;
+    document.getElementById("wm-email-display").textContent = email;
+    document.getElementById("wm-phone-display").textContent = phone;
+    document.getElementById("wm-location-display").textContent = location;
+
+    document.getElementById("wm-cart-location").textContent = location;
+
+    document.getElementById("contactNumber").textContent = phone;
+
+    const recipientNameElement = document.getElementById("recipientName");
+    if (recipientNameElement) {
+        console.log("Updating recipient name to:", fullName); 
+        recipientNameElement.textContent = fullName;  
+    } else {
+        console.error("Error: recipientName element not found.");
+    }
+
+    closeProfilePopup();
+    alert("Profile updated successfully!");
+});
+
+
+
+function editpass() {
+  alert('Comming soon!');
+}
+
+// darkmode testing here
+
+const darkToggle = document.getElementById("darkToggle");
+
+darkToggle.addEventListener("change", function () {
+  const isDarkMode = darkToggle.checked;
+  document.body.classList.toggle("dark-mode", isDarkMode);
+
+  const productSections = document.querySelectorAll('.product-section');
+  productSections.forEach((section) => {
+    section.classList.toggle("dark-mode-section", isDarkMode);
+  });
+
+  const products = document.querySelectorAll('.product');
+  products.forEach((product) => {
+    product.classList.toggle("dark-mode-product", isDarkMode);
+  });
+
+  const productDetails = document.querySelectorAll('.product-detailss');
+  productDetails.forEach((detail) => {
+    detail.classList.toggle("dark-mode-detail", isDarkMode);
+  });
+
+  const stars = document.querySelectorAll('.star');
+  stars.forEach((star) => {
+    star.classList.toggle("dark-mode-star", isDarkMode);
+  });
+});
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+ target.scrollIntoView({ behavior: "smooth", block: "start" });}, 100);  }
+    }
+  });
+
+
+const scrollUpBtn = document.getElementById('scroll-up-btn');
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollUpBtn.style.display = "flex";
+    } else {
+        scrollUpBtn.style.display = "none";
+    }
+};
+
+scrollUpBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+
+function showThankYou() {
+  document.getElementById('thankyouSection').style.display = 'block';
+}
+
+
+
+  </script>
+</body>
+</html>
+
+<!-- 
+references : https://www.footlocker.ph/
+https://titan22.com/
+https://www.capital.com.ph/
+https://www.urbanathletics.com.ph/?srsltid=AfmBOoooR2uIpFnNI_D4fC_Z_coS3cOL4AEOGryqkf5_1rooawBJTTl8
+https://www.nike.com/w/mens-basketball-shoes-3glsmznik1zy7ok
+https://www.underarmour.com.ph/en-ph/t/curry-brand/?srsltid=AfmBOorM7AbFc56oz8c5SBiCy1SqDeWwEoN7o-hDADJIt-5vySLluo3J -->
+<!-- https://www.anta.ph/products/anta-men-kyrie-irving-kai-2-basetball-shoes -->
+
+
+<!-- shoes on the go -->
+<!-- ANTA Men Kyrie Irving KAI 2 Basketball Shoes
+price ₱7,995.00 no discount
+color 1125B1110S-3 Solar
+ANTA Men Klay Thompson KT9 Basketball Shoes
+ANTA Men Kyrie Irving KAI 1 'Kai-leidoscope' Basketball Shoes
+₱5,600.00 Regular price ₱7,995.00 29% off
+
+
+
+
+ANTA Men Klay Thompson 3 Point Rain Lite V2 Basketball Shoes
+₱2,760.00 Regular price ₱4,595.00 39% off -->
+
+<!-- ANTA Men Klay Thompson KT Splash 7 Basketball Shoes
+₱6,595.00 1125B1131-5 White -->
+
+<!-- 
+₱4,500.00 Regular price ₱8,995.00 49% - black -->
+
+<!-- ANTA Men Shock The Game Shock Wave 6.0 Basketball Shoes
+₱4,560.00 Regular price ₱7,595.00 39% -->
+

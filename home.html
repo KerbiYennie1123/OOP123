@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Precision in Every Step - WILLMELIA</title>
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet" href="css/other-style.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="icon" href="../img/logoB.png" type="image/x-icon">
+
+
+</head>
+
+<body class="home"> 
+
+<header class="wm-header">
+  <div class="logov2">
+    <img class="logo-black" src="../img/logoB1.png" alt="WILLMELIA logo">
+  </div>
+
+  <nav class="home-nav">
+    <a href="home.html" class="active1">Home</a>
+    <a href="product.html">Product</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </nav>
+
+
+  <div class="wm-header-profile">
+    <img id="wm-header-pic" src="../img/defaultpfp.png" alt="Profile Picture" onclick="toggleProfileMenu()">
+</div>
+
+<div id="wm-profile-menu" class="wm-profile-menu" style="display: none;">
+    <span id="wm-header-name">@cheese</span>
+    <button onclick="openProfilePopup()"><i class="fa-solid fa-user"></i> My Profile</button> 
+    <button onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button>
+</div>
+
+  <!-- hamburger icon (mobile only) -->
+  <div class="hamburger-menu-home" id="hamburger-menu">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <div class="phone-sidebar" id="phone-sidebar">
+    <!-- Close Button -->
+    <div class="phone-sidebar-close" id="sidebar-close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="phone-nav-links">
+      <li><a href="#" id="my-profile-link" onclick="openProfilePopup()">My Profile</a></li>
+      <hr>
+      <li> Navigations </li>
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="product.html">Product</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <div class="sidebar-dim"></div>
+</header>
+
+
+
+<!-- profile settings here -->
+
+  <div id="wmProfilePopup" class="wm-profile-popup">
+  <div class="wm-profile-content">
+    <button class="wm-close-btn" onclick="closeProfilePopup()"><i class="fa-solid fa-xmark"></i></button>
+    
+    <div class="wm-profile-wrapper">
+
+  <!-- here details        -->
+
+      <div class="wm-profile-display">
+<button id="wm-change-cover-btn">Change Cover Photo</button>
+
+       <div class="wm-profile-cover-box" id="wm-profile-cover-box">
+  <input type="file" id="wm-cover-pic" accept="image/*" style="display: none;">
+
+
+
+
+        <div class="wm-profile-pic-wrap">
+  <img id="wm-profile-pic-preview" src="../img/defaultpfp.png" alt="Profile Picture" style="cursor:pointer;">
+  <input type="file" id="wm-profile-pic" accept="image/*" style="display: none;">
+    <div class="wm-profile-hover-text"> Change Profile Picture</div>
+
+</div>
+
+        <h3 id="wm-name-display">cheese</h3></div>
+        <hr> 
+        <div class="wm-profile-details">
+        <h4>Profile Details</h4>
+        </div>
+        <p><strong><i class="fa-solid fa-user"></i> Name:</strong> <span id="wm-fname-display">William Kirby</span></p>
+        <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> <span id="wm-email-display">william_burger@bsis.com</span></p>
+        <p><strong><i class="fa-solid fa-phone"></i> Phone:</strong> <span id="wm-phone-display"> 09123456789</span></p>
+        <p><strong><i class="fa-solid fa-location-dot"></i> Location:</strong> <span id="wm-location-display">Bulacan, Malolos City</span></p> <hr>
+
+        <div class="pass-set">
+        <button onclick="editpass()" class="editpass"> Edit password </button> </div>
+
+
+      </div>
+
+
+      <!-- edit side hereee -->
+
+      <div class="wm-profile-edit">
+        <h3><i class="fa-solid fa-gear"></i> Edit Profile</h3>
+        <form id="wm-profile-form">
+          
+          
+          <div class="wm-form-group">
+            <label for="wm-username">Username</label>
+            <input type="text" id="wm-username" value="@cheese" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-fname">Full Name</label>
+            <input type="text" id="wm-fname" value="William Kirby" required>
+          </div>
+
+
+          <div class="wm-form-group">
+            <label for="wm-email">Email</label>
+            <input type="email" id="wm-email" value="william_burger@bsis.com" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-contact">Phone Number</label>
+            <input type="text" id="wm-contact" value="09123456789" required>
+          </div>
+
+          <div class="wm-form-group">
+            <label for="wm-location">Location</label>
+            <input type="text" id="wm-location" value="Bulacan, Malolos City" required>
+          </div>
+
+
+
+          <button type="submit" class="wm-save-btn">Save Changes</button>
+          <button type="button" class="wm-logout-btn" onclick="logout()">Log Out</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<section class="ads">
+  <div class="ads-media">
+
+    <!-- videos heree add ka pag may i-aadvertise tayo -->
+    <video src="../vid/sc30.mp4" type="video/mp4" muted playsinline></video>
+    <video src="../vid/lbj.mp4" type="video/mp4" muted playsinline></video>
+    <video src="../vid/kai.mp4" type="video/mp4" muted playsinline></video>
+
+
+    <!-- dito image ads -->
+    <img src="../img1/curry1.jpg" alt="SC30 Ads">
+    <img src="../img1/cory.png" alt="SC30 Ads">
+    <img src="../img1/nayk.png" alt="Lolo Bron ads">
+    <img src="../img1/nayk1.png" alt="Lolo Bron ads">
+    <img src="../img1/bg1.png" alt="Irving">
+
+
+
+  </div>
+
+  <div class="ads-hero-overlay">
+  <h1>Welcome to WILLMELIA</h1>
+  <p>Precision in every step</p>
+</div>
+
+
+  <!--  indicators -->
+  <div class="ads-indicators" id="adsDots"></div>
+</section>
+
+
+
+<section class="wm-ad-banner">
+  <h2>Month of May Mega Sale: Up to 30% Off!</h2>
+  <p class="sub-title">Step up your style with unbeatable sneaker deals - limited time only!</p>
+   <button onclick="alert('Redirecting to products'); window.location.href='product.html';" class="shop-btn">
+  Shop Now
+</button>
+
+
+    <button class="view-more-btn" onclick="showMyFeaturedProduct()">
+    <span class="view-more-text">View [F] product</span>
+    <span class="arrow-icon">▼</span>
+  </button>
+  <div class="extra-content" style="display:none;">
+   
+<!-- shoe preview -->
+
+
+<div class="wm-product-view">
+
+  <div class="wm-gallery">
+    <div class="wm-thumbnails">
+      <img src="../img1/curry2.1.png" class="thumb" onclick="updateMainImage(this.src)" alt="Curry 2 MN view">
+      <img src="../img1/curry2.2.png" class="thumb" onclick="updateMainImage(this.src)" alt="Curry 2 MN view">
+      <img src="../img1/curry2.3.png" class="thumb" onclick="updateMainImage(this.src)" alt="Curry 2 MN view">
+
+      <img src="../img1/curry2.4.png" class="thumb" onclick="updateMainImage(this.src)" alt="Curry 2 MN view">
+
+      <img src="../img1/curry2.5.png" class="thumb" onclick="updateMainImage(this.src)" alt="Curry 2 MN view">
+    </div>
+    <div class="wm-main-image">
+      <img id="mainProductImage" src="../img1/curry2main.png" alt="Main Product Image">
+    </div>
+  </div>
+
+  <div class="wm-product-details">
+    <h2>Under Armour Curry 2 NM</h2>
+    <p class="wm-rating">★★★★★ 99 reviews</p>
+   <p class="wm-price">
+  <span style="color:gray;font-size: 10px;">old price: </span>
+  <del style="color:dimgray; font-size:12px;font-weight: bold;">₱9,195.00</del>
+  <span style="color:gray;font-size: 10px;"> now: </span>
+  <span class="wm-final-price">₱6,436.00</span>
+</p>
+
+
+    <p><strong>COLOUR:</strong> WHITE - BLACK</p>
+    <p class="wm-note">AVAILABLE SIZES:</p>
+
+    <div class="wm-sizes">
+      <span class="size">7</span>
+      <span class="size">8</span>
+      <span class="size">9</span>
+      <span class="size disabled">10</span>
+    </div>
+
+    <button onclick="alert('Redirecting to products [UA Products]'); window.location.href='product.html#sc30';" class="shop-btn" style="margin-top: 30px;">
+  Check Now!
+</button>
+
+  </div>
+</div>
+
+
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- carousel part here displayss -->
+
+<section class="wm-top-picks">
+<h2 class="top-8">NEWEST IN THE GAME
+ </h2>
+</div>  <div class="wm-carousel">
+    <button class="wm-arrow wm-left"> ❮ </button>
+
+    <div class="wm-products-wrapper">
+      <div class="wm-products">
+        <div class="wm-product">
+          <a href="product.html#1">
+  <img src="../img1/top1.png" alt="Curry Fox 1 'Gamer'" class="wm-product-img">
+</a>
+
+          <div class="wm-product-info">
+            <p class="wm-brand">UA</p>
+            <p class="wm-name">  SC30 Splash 24</p>
+            <p class="wm-price"><del>₱56720.00</del> <span class="n-price"> ₱51048.00</p>
+          </div>
+        </div>
+
+        <div class="wm-product">
+          <img src="../img1/top2.png" alt="Handball Spezial" class="wm-product-img">
+          <div class="wm-product-info">
+            <p class="wm-brand">NIKE</p>
+            <p class="wm-name">LeBron XXIIL</p>
+            <p class="wm-price"><del>₱7295.00 </del> <span class="n-price">  ₱5179.45 </span> </p>
+          </div>
+        </div>
+
+        <div class="wm-product">
+          <img src="../img1/top3.png" alt="Handball Spezial W" class="wm-product-img">
+          <div class="wm-product-info">
+            <p class="wm-brand">NIKE</p>
+            <p class="wm-name">KD17 EP</p>
+            <p class="wm-price"><del>₱7095.00 </del> <span class="n-price"> ₱4611.75 </span></p>
+          </div>
+        </div>
+
+
+        <div class="wm-product">
+          <img src="../img1/top4.png" alt="Handball Spezial W" class="wm-product-img">
+          <div class="wm-product-info">
+            <p class="wm-brand">NIKE</p>
+            <p class="wm-name">Freak 5 EP</p>
+            <p class="wm-price"><del>₱7095.00 </del> <span class="n-price">  ₱4611.75  </span></p>
+          </div>
+        </div>
+
+
+        <div class="wm-product">
+          <img src="../img1/top5.png" alt="Handball Spezial W" class="wm-product-img">
+          <div class="wm-product-info">
+            <p class="wm-brand">NIKE</p>
+            <p class="wm-name"> Luka 4 PF 'Bloodline'</p>
+            <p class="wm-price"><span class="new-price"> ₱7595.00
+
+ </span></p>
+          </div>
+        </div>
+
+        <!-- Add more if needed -->
+      </div>
+    </div>
+
+    <button class="wm-arrow wm-right">❯</button>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--  <section class="wm-featured">
+    <h2>Featured This Week</h2>
+    <div class="wm-product">
+      <img src="../img1/store.jpg" alt="Sneaker 1">
+      <h3>Willmelia Boost Runner</h3>
+      <p>$89.99</p>
+      <button>Add to Cart</button>
+    </div>
+  </section> -->
+<h2 class="sb" dis> Shop by Brands </h2> 
+
+<div class="brand-partners">
+
+  <div class="brand-card">
+    <a href="product.html#sc30">
+      <img src="../img1/sc.png" alt="Curry x Under Armour">
+    </a>
+  </div>
+  <div class="brand-card">
+    <a href="product.html#nike">
+      <img src="../img1/nikes.png" alt="Lebron James x Nike">
+    </a>
+  </div>
+  <div class="brand-card">
+    <a href="product.html#anta">
+      <img src="../img1/kais.png" alt="Kyrie x Anta">
+    </a>
+  </div>
+</div>
+
+
+
+
+
+<div class="parent">
+  <div class="nba-ban"><img src="../img1/nba.png" alt="Banner"></div>
+  <div class="div6"><img src="../img1/yes.png" alt="Banner ads"></div>
+
+  <div class="div2"><a href="product.html#sc30"><img src="../img1/sc30.png" alt="Under Armour Ads">
+   <img src="../img1/sc.png" alt="Curry x Under Armour"></a></div>
+  <div class="div3"><a href="product.html#nike"><img src="../img1/lbj.png" alt="Nike Ads">
+   <img src="../img1/nikes.png" alt="Lebron James x Nike"></a></div>
+  <div class="div4"><a href="product.html#anta"><img src="../img1/kai.png" alt="Anta Ads">
+   <img src="../img1/kais.png" alt="Kyrie x Anta "></a></div>
+
+  <div class="div5"><img src="../img1/kd.png" alt="Nike Ads"></div>
+</div>
+
+<div  class="kai-ads">
+<img src="../img1/kai1.png" alt="Anta Kai">
+</div>
+
+
+<div class="brands">
+  <img src="../img1/brand.png" alt="Partner Brands">
+</div>
+
+
+
+
+    
+<!-- carousel part here displayss -->
+
+
+
+
+
+
+  
+
+  <!-- <section class="wm-latest">
+    <h2>Latest Arrivals</h2>
+    <div class="wm-grid">
+      <div class="wm-product">
+        <img src="../img/ads1.png" alt="Curry fox 1'gamer'">
+        <h3>Core Classic</h3>
+        <p>₱9999</p>
+      </div>
+      <div class="wm-product">
+        <img src="shoe2.jpg" alt="Product 2">
+        <h3>Runner Pro</h3>
+        <p>₱99.99</p>
+      </div>
+      <div class="wm-product">
+        <img src="shoe3.jpg" alt="Product 3">
+        <h3>Trail X</h3>
+        <p>₱109.99</p>
+      </div>
+      <div class="wm-product">
+        <img src="shoe4.jpg" alt="Product 4">
+        <h3>SlipOn Breeze</h3>
+        <p>₱54.99</p>
+      </div>
+    </div>
+  </section>
+
+ -->
+
+
+<!-- footer part -->
+
+<footer class="wm-footer">
+  <div class="wm-footer-container">
+   
+
+    <!-- Links -->
+    <div class="wm-footer-links">
+      <div>
+        <h4>Partners</h4>
+        <ul>
+  
+        <li>Under Armour</li>
+        <li>Nike</li>
+        <li>Anta</li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Customer Service</h4>
+        <ul>
+          <li>Contact Us</li>
+          <li>Chat with WIllBot</li>
+          <li>Our Location </li>
+
+
+        </ul>
+      </div>
+      <div>
+        <h4>About Us</h4>
+        <ul>
+          <li>Our Story</li>
+          <li>Why WILLMELIA</li>
+          <li>Our Promise</li>
+          <li>Our Vision</li>
+
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="product.html">Product page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="wm-footer-newsletter">
+      <h3>Stay Updated with Our Latest Sneakers</h3>
+      <p>Get the latest updates, offers, and more directly in your inbox!</p>
+      <label for="email"> </label>
+      <div class="wm-submit-form">
+        <input type="email" id="email" placeholder="Email Address" />
+        <button onclick="submitEmail()">Submit</button>
+      </div>
+      <div class="wm-social-icons">
+        <a href="http://fb.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/explore" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="wm-footer-bottom">
+    <p>Copyright &copy; 2025 | WILLMELIA | BSIS - 1A </p>
+  </div>
+</footer>
+
+
+
+
+
+<button id="scroll-up-btn" title="Go to top">
+    <span>&raquo;</span>
+    <span class="scroll-text">Scroll Up</span>
+</button>
+<script src="script/setting.js"></script>
+<script type="text/javascript">
+  
+
+
+
+
+  // carousel part
+
+ document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('.wm-carousel'); 
+
+    carousels.forEach(function(carousel) {
+      const wmProducts = carousel.querySelector('.wm-products'); 
+      const leftArrow = carousel.querySelector('.wm-left'); 
+      const rightArrow = carousel.querySelector('.wm-right');
+      
+      let scrollAmount = 0;
+
+      function getScrollStep() {
+        const product = carousel.querySelector('.wm-product'); 
+        return product.offsetWidth; 
+      }
+
+      leftArrow.addEventListener('click', () => {
+        scrollAmount = Math.max(scrollAmount - getScrollStep(), 0); 
+        wmProducts.style.transform = `translateX(-${scrollAmount}px)`; 
+      });
+
+      rightArrow.addEventListener('click', () => {
+        const maxScroll = wmProducts.scrollWidth - wmProducts.parentElement.offsetWidth;
+        scrollAmount = Math.min(scrollAmount + getScrollStep(), maxScroll);
+        wmProducts.style.transform = `translateX(-${scrollAmount}px)`;
+      });
+    });
+  });
+
+
+
+
+
+
+// ads part here where in it will be a slideshow
+const slides = document.querySelectorAll('.ads-media video, .ads-media img');
+const dotsContainer = document.getElementById('adsDots');
+let current = 0;
+let interval;
+
+// indicators here
+slides.forEach((_, index) => {
+  const dot = document.createElement('div');
+  dot.classList.add('dot');
+  if (index === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => showSlide(index));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.ads-indicators .dot');
+
+function showSlide(index) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  dots[current].classList.add('inactive');
+
+  current = index;
+
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+  dots[current].classList.remove('inactive');
+
+  if (slides[current].tagName === "VIDEO") {
+    slides[current].currentTime = 0;
+    slides[current].play();
+  }
+
+  resetInterval();
+}
+
+function showNextSlide() {
+  let nextIndex = (current + 1) % slides.length;
+  showSlide(nextIndex);
+}
+
+function resetInterval() {
+  clearInterval(interval);
+  if (slides[current].tagName === "VIDEO") {
+    interval = setInterval(showNextSlide, 40000);
+  } else {
+    interval = setInterval(showNextSlide, 5000);
+  }
+}
+
+slides[current].classList.add('active');
+dots[current].classList.add('active');
+if (slides[current].tagName === "VIDEO") slides[current].play();
+resetInterval();
+
+
+
+
+
+
+function showMyFeaturedProduct() {
+  var content = document.querySelector('.extra-content');
+  var arrow = document.querySelector('.arrow-icon');
+  var viewMoreText = document.querySelector('.view-more-text');
+  
+  if (content.style.display === 'none' || content.style.display === '') {
+    content.style.display = 'block';
+    viewMoreText.textContent = 'Show Less';
+    arrow.textContent = '▲';
+
+  } else {
+    content.style.display = 'none';
+    viewMoreText.textContent = 'View [F] product';
+    arrow.textContent = '▼';
+  }
+}
+
+
+// shoes
+
+function updateMainImage(src) {
+  document.getElementById("mainProductImage").src = src;
+}
+
+
+
+</script>
+</body>
+</html>
